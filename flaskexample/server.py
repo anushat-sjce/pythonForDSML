@@ -15,5 +15,5 @@ def home():
 ### How to run
   """
   flask --app server --debug run 
-  curl -X GET -i -w '\n'
+  curl -X GET -i -w '\n' localhost:5000
   """
