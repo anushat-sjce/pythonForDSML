@@ -1,0 +1,29 @@
+How to run the module.
+ python3
+Python 3.6.9 (default, Nov 25 2022, 14:10:45) 
+[GCC 8.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import module5.a
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'module5'
+>>> import module5a
+>>> module5a.basic.addition(10,20)
+30
+>>> module5a.basic.square(78)
+6084
+>>> module5a.basic.square(87)
+7569
+>>> module5a.basic.doubler(87)
+174
+>>> module5a.basic.doubler(7)
+14
+>>> module5a.stat.mean([4,3,2,1])
+2.5
+>>> module5a.stat.mean([4,3,2,1, 0])
+2.0
+>>> module5a.stat.median([4,3,2,1,0])
+2
+>>> module5a.stat.median([4,3,2,1,0, 6])
+2.5
+>>> 
