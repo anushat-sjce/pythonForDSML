@@ -22,3 +22,6 @@ def get_person_byid(uuid):
         if person["uuid"] == uuid:
             return person
     return {"Message": "Person not found"}
+
+
+#curl -X GET -i -w '\n' localhost:5000/person/22
