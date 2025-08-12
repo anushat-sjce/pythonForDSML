@@ -63,6 +63,40 @@ def delete_transaction(transaction_id):
         
     return redirect(url_for("get_transactions"))
 
+#search operations
+@app.route("/search", methods = {"GET", "POST"})
+def search_transactions():
+    if request.method == "POST":
+        min_value = request.form.get('min_amount')
+        max_value = request.form.get('max_amount')
+
+        min1 = float(min_value)
+        max1 = float(max_value)
+
+        new_list = []
+        for transaction in transactions:
+            if (transaction['amount'] >= min1):
+                if (transaction['amount'] <= max1) :
+                    new_list.append(transaction)
+                    print(transaction)
+        
+        return render_template("transactions.html", transactions = new_list)
+    
+    if request.method == "GET":
+        return render_template("search.html")
+
+#total balance
+@app.route("/balance")
+def total_balance():
+    sum = 0
+    for transaction in transactions:
+        sum = transaction['amount'] + sum
+
+    print("Sum of all transaction", sum)
+    total = {"Total " : sum}
+    return render_template("transactions.html", total_balance = total, transactions = transactions)
+
+
 
 # Run the Flask app
 if __name__ == "__main__":
