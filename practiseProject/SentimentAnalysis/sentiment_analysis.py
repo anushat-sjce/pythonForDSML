@@ -8,9 +8,12 @@ def sentiment_analyzer(text_to_analyse):  # Define a function named sentiment_an
     response = requests.post(url, json = myobj, headers=header)  # Send a POST request to the API with the text and headers
     
     formatted_response = json.loads(response.text)
-    #print(formatted_response)
-    label = formatted_response['documentSentiment']['label']
-    score = formatted_response['documentSentiment']['score']
-    #print(label)
-    #print(score)
+    if response.status_code == 200:
+        #print(formatted_response)
+        label = formatted_response['documentSentiment']['label']
+        score = formatted_response['documentSentiment']['score']
+    elif response.status_code == 500:
+        label = None
+        score = None
+    
     return {"label" : label, "score" : score}
